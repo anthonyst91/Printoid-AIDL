@@ -1,3 +1,7 @@
 <resources>
+
     <string name="app_name">Printoid AIDL demo app</string>
+
+    <string name="btn_request_profiles">Request configured profiles</string>
+
 </resources>

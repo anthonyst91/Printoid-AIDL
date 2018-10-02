@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp"
+    app:cardElevation="3dp">
+
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_profile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tv_profile_id"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:layout_marginBottom="5dp"
+            android:textStyle="bold"
+            tools:text="Dagoma DiscoEasy"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_profile_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tv_profile_name"
+            app:layout_constraintBottom_toTopOf="@+id/tv_last_connection"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            tools:text="ABCDEF1234567890"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_last_connection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tv_profile_id"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            tools:text="Last connection: 12 May 2018"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>
