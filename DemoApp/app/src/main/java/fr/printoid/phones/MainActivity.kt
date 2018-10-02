@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.text.TextUtils
+import fr.printoid.phones.adapter.listener.OnServerClickedListener
 
 /**
  * A very simple example to handle the communication with Printoid using
@@ -35,6 +36,8 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         private const val TAG = "AIDL-DemoApp"
+
+        private const val DUMMY_URL = "https://my-server.com/the-best-file.gcode"
 
         /** Remote action key */
         private const val REMOTE_ACTION = "fr.printoid.phones.PrintoidCommunicationService.BIND"
@@ -85,7 +88,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun initializeRecycler() {
         val rcvLayoutManager = LinearLayoutManager(this)
-        rcvAdapter = ServerAdapter()
+        rcvAdapter = ServerAdapter(object : OnServerClickedListener {
+            override fun onServerClicked(server: ServerModel) = sendDummyUrlTo(server)
+        })
 
         rcv_profiles.apply {
             adapter = rcvAdapter
@@ -98,6 +103,9 @@ class MainActivity : AppCompatActivity() {
         btn_request_profiles.setOnClickListener { loadProfiles() }
     }
 
+    /**
+     * Load list of configured profiles from Printoid
+     */
     private fun loadProfiles() {
         try {
             val servers = service?.configuredServers
@@ -109,7 +117,21 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         } catch (e: RemoteException) {
-            Log.e(TAG, "Remote exception: ", e)
+            Log.e(TAG, "loadProfiles.Remote exception: ", e)
+        }
+    }
+
+    /**
+     * Send dummy URL for the passed server to Printoid
+     */
+    private fun sendDummyUrlTo(server: ServerModel) {
+        Log.i(TAG, "doOnServerClicked: $server")
+
+        try {
+            service?.sendGcodeFromUrlToServer(DUMMY_URL, server.serverId)
+
+        } catch (e: RemoteException) {
+            Log.e(TAG, "sendDummyUrlTo.Remote exception: ", e)
         }
     }
 
