@@ -33,6 +33,7 @@ DemoApp/.navigation/
 DemoApp/captures/
 
 # IntelliJ
+*.iml
 DemoApp/*.iml
 DemoApp/.idea/workspace.xml
 DemoApp/.idea/tasks.xml
