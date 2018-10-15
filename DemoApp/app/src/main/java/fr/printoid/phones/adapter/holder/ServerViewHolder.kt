@@ -1,6 +1,6 @@
 package fr.printoid.phones.adapter.holder
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import fr.printoid.phones.ServerModel
 import kotlinx.android.synthetic.main.row_profile.view.*
