@@ -45,9 +45,9 @@ class MainActivity : AppCompatActivity() {
         private const val SERVICE_CLASSNAME = "fr.yochi376.octodroid.ipc.PrintoidCommunicationService"
 
         /** Printoid PREMIUM package name */
-        private const val PRINTOID_PRO_PN = "fr.yochi76.printoid.phones.pro"
-        /** Printoid PRO package name */
         private const val PRINTOID_PREMIUM_PN = "fr.yochi76.printoid.phones.premium"
+        /** Printoid PRO package name */
+        private const val PRINTOID_PRO_PN = "fr.yochi76.printoid.phones.pro"
         /** Printoid LITE package name */
         private const val PRINTOID_LITE_PN = "fr.yochi76.printoid.phones.trial"
     }
